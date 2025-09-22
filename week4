@@ -5,3 +5,22 @@ void main() {
   nums.removeWhere((num) => num % 2 == 0);
   print(nums);
 }
+
+----------------------------------------------------
+
+void main() {
+  var output = StringBuffer();
+  
+  var n = 10;
+  for (var y = 0; y < n; y++) {
+    for (var x = 0; x< n; x++) {
+      var condition = true;
+      if (condition) {
+        output.write('#');
+      }
+    }
+    output.writeln();
+  }
+  
+  print(output.toString());
+  }
