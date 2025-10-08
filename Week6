@@ -1,0 +1,7 @@
+class Person {
+final String name;
+final int age;
+Person({required this.name, required this.age});
+void introduce() {
+print('안녕하세요, 저는 $name이고 $age살입니다.};
+}
