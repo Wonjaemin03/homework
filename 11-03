@@ -1,0 +1,84 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Box and X Demo',
+      home: Scaffold(
+        appBar: AppBar(title: Text('Box and X')),
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              // 첫 번째 Row: 상자 3개
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildBox(Colors.red),
+                  buildBox(Colors.green),
+                  buildBox(Colors.blue),
+                ],
+              ),
+              SizedBox(height: 40),
+              // 두 번째 Row: X 모양 2개
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildXBox(),
+                  buildXBox(),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // 단순한 상자
+  Widget buildBox(Color color) {
+    return Container(
+      width: 80,
+      height: 80,
+      color: color,
+    );
+  }
+
+  // X 모양을 그리는 상자
+  Widget buildXBox() {
+    return Container(
+      width: 80,
+      height: 80,
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+            ),
+          ),
+          // 대각선 1
+          Transform.rotate(
+            angle: 45 * 3.1416 / 180,
+            child: Container(
+              width: 80,
+              height: 2,
+              color: Colors.black,
+            ),
+          ),
+          // 대각선 2
+          Transform.rotate(
+            angle: -45 * 3.1416 / 180,
+            child: Container(
+              width: 80,
+              height: 2,
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
