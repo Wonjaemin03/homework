@@ -1,0 +1,26 @@
+mixin Logger {
+  void log(String message) {
+    print("[LOG] $message");
+  }
+}
+
+class Service {
+  void execute() {
+    print("서비스 실행 중...");
+  }
+}
+
+// Logger 기능을 추가한 클래스
+class LoggingService extends Service with Logger {
+  @override
+  void execute() {
+    log("서비스 실행 시작");
+    super.execute();
+    log("서비스 실행 완료");
+  }
+}
+
+void main() {
+  LoggingService service = LoggingService();
+  service.execute();
+}
